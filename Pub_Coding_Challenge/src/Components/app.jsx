@@ -1,34 +1,34 @@
 import React from 'react';
-import $ from 'jquery';
-
+import ArticleList from './ArticleList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      state: ''
+      articles: []
     }
   }
 
-  getData() {
-    console.log('making requests')
-   $.ajax({
-        url: '/data', 
-        success: (data) => {
-          console.log('response: ', data);
-        },
-        error: (err) => {
-          console.log('err', err);
-        }
-    });
+  componentDidMount() {
+   fetch('/data')
+    .then(( results ) => {
+      return results.json()
+    })
+      .then((json) => {
+        return JSON.parse(json)
+      })
+        .then((parsedJSON) => {
+          this.setState({articles: parsedJSON.data})
+        })
+
   }
 
 
   render () {
     return (
         <div>
-          <h1> Coding Challenge </h1>
-          <button onClick={this.getData}> HTTP Request </button>
+          <h1> Articles </h1>
+          <ArticleList articles={this.state.articles} />
         </div>
     )
   }
