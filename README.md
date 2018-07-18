@@ -16,7 +16,7 @@ Getting Started
   3) Enter "npm run server-start" to start the server
 
 
-  4) Open browser(only tested on chrome) to http://127.0.0.1:3000/ to see running app. 
+  4) Open browser(only tested on chrome) to http://127.0.0.1:3000/ to see running app.  **Need to add your own API_Key in place of the variable Unique_JWT in /server/index.js""
 
 
   Next steps
@@ -29,6 +29,7 @@ Getting Started
       4) Add tests (specifically to test the API calls and rendering of components)
       5) Add proptypes
       6) format authors for multiple or zero authors
+      7) Add location to add your own api key (I used .gitignore to hide my key)
 
 
-      
+
